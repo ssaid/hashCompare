@@ -46,7 +46,7 @@ begin
 		from information_schema.columns
 			join tables_to_hash on tables_to_hash.tbl_to_hash = columns.table_name and tables_to_hash.schema_to_hash = columns.table_schema
 		where 1=1
-			and column_name !~ '(id|section_)'
+			and column_name !~ '(id|create_date|write_date|create_uid|write_uid|section_)'
 		group by 1
 		order by 1
 		) LOOP
